@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>KOPI PASTEA</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap">
+<style>
+:root{--bg:#f7f3f2;--card:#fff;--fg:#201516;--muted:#7d6e6f;--line:#efe6e5;--red:#b3262d;--red2:#6f0f14;--soft:#fdeceb;--ok:#14803c;--sh:0 4px 20px rgba(80,20,20,.08);
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#120b0c;--card:#1d1314;--fg:#f5e9e8;--muted:#b9a3a2;--line:#312122;--red:#e5484d;--soft:#33191b;--ok:#5fcf86;--sh:none;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#120b0c;--card:#1d1314;--fg:#f5e9e8;--muted:#b9a3a2;--line:#312122;--red:#e5484d;--soft:#33191b;--ok:#5fcf86;--sh:none;color-scheme:dark}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+button{font:inherit;cursor:pointer}
+.top{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top div{max-width:1000px;margin:0 auto;padding:12px 16px;display:flex;align-items:center;gap:10px}
+.logo{width:38px;height:38px;border-radius:12px;background:linear-gradient(145deg,var(--red),var(--red2));display:grid;place-items:center;font-size:20px}
+.top b{font-size:17px;letter-spacing:.06em}.top small{display:block;color:var(--muted);font-size:12px;line-height:1.1}
+main{max-width:1000px;margin:0 auto;padding:16px 16px 130px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:16px;box-shadow:var(--sh)}
+h2{font-size:18px;margin:0 0 12px}
+.hide{display:none!important}
+.hero{background:radial-gradient(circle at 85% 10%,#c23a3f,transparent 45%),linear-gradient(150deg,#8a1116,#5a0a0e);color:#fff;border-radius:26px;padding:42px 20px;text-align:center;margin-bottom:16px}
+.hero p{margin:0;opacity:.9}
+.hero h1{font-family:Pacifico,cursive;font-weight:400;font-size:clamp(40px,10vw,72px);line-height:1.15;margin:12px 0 22px}
+.cta{background:#fff;color:#7d1111;border:0;border-radius:999px;padding:13px 30px;font-weight:700;box-shadow:0 6px 18px rgba(0,0,0,.25)}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px}
+.tile{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px 10px;text-align:center;color:var(--fg);box-shadow:var(--sh)}
+.tile i{font-style:normal;font-size:26px;display:block}.tile span{font-size:13px;color:var(--muted)}.tile b{display:block;font-size:15px}
+.grid{display:grid;gap:16px}
+@media(min-width:860px){.grid{grid-template-columns:1fr 360px}#cartbox{position:sticky;top:76px;align-self:start}#fl{display:none!important}}
+.search{width:100%;padding:12px 16px;border:1px solid var(--line);border-radius:14px;background:var(--bg);color:var(--fg);font:inherit;margin-bottom:12px}
+input{font:inherit}
+.prods{display:grid;grid-template-columns:repeat(auto-fill,minmax(145px,1fr));gap:12px}
+.p{position:relative;display:flex;flex-direction:column;gap:6px;align-items:flex-start;text-align:left;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px;color:var(--fg);box-shadow:var(--sh);transition:transform .1s}
+.p:active{transform:scale(.96)}
+.p .ic{width:46px;height:46px;border-radius:14px;background:var(--soft);display:grid;place-items:center;font-size:25px}
+.p b{font-size:14.5px;line-height:1.25}.p small{color:var(--red);font-weight:700;font-size:14px}
+.bd{position:absolute;top:10px;right:10px;background:var(--red);color:#fff;border-radius:999px;min-width:26px;height:26px;display:grid;place-items:center;font-size:13px;font-weight:700;padding:0 7px}
+.row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--line)}
+.row:last-child{border:0}
+.row small{color:var(--muted)}
+.q{display:flex;align-items:center;gap:4px}
+.q button{width:32px;height:32px;border-radius:50%;border:0;background:var(--soft);color:var(--red);font-size:18px;font-weight:700}
+.q span{min-width:26px;text-align:center;font-weight:700}
+.tot{display:flex;justify-content:space-between;align-items:baseline;font-size:15px;margin:12px 0 10px}
+.tot b{font-size:26px}
+.in{width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:14px;background:var(--bg);color:var(--fg);margin-bottom:8px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
+.chips button{border:1px solid var(--line);background:var(--bg);color:var(--fg);border-radius:999px;padding:6px 12px;font-size:13px}
+.kb{color:var(--ok);font-weight:700}
+.btn{width:100%;border:0;border-radius:14px;padding:14px;font-weight:700;background:linear-gradient(145deg,var(--red),var(--red2));color:#fff;margin-top:6px}
+.btn.g{background:transparent;color:var(--muted);border:1px solid var(--line);font-weight:500}
+.add{display:grid;grid-template-columns:1fr 120px;gap:8px}
+.x{border:0;background:var(--soft);color:var(--red);border-radius:10px;padding:6px 10px;font-size:13px}
+.empty{color:var(--muted);text-align:center;padding:18px 0}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+.stat{background:var(--soft);border-radius:16px;padding:14px}.stat small{color:var(--muted)}.stat b{display:block;font-size:20px}
+#nav{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));max-width:480px;margin:0 auto;display:flex;background:var(--card);border:1px solid var(--line);border-radius:22px;box-shadow:0 8px 30px rgba(0,0,0,.18);padding:6px;z-index:10}
+#nav button{flex:1;background:none;border:0;color:var(--muted);border-radius:16px;padding:7px 0;font-size:20px;display:flex;flex-direction:column;align-items:center}
+#nav button span{font-size:11.5px}
+#nav button.on{background:var(--soft);color:var(--red);font-weight:700}
+#fl{position:fixed;left:16px;right:16px;bottom:calc(88px + env(safe-area-inset-bottom,0px));max-width:448px;margin:0 auto;z-index:9;background:linear-gradient(145deg,var(--red),var(--red2));color:#fff;border:0;border-radius:16px;padding:12px 18px;display:flex;justify-content:space-between;box-shadow:0 8px 24px rgba(0,0,0,.3);font-weight:700}
+#toast{position:fixed;top:70px;left:50%;transform:translateX(-50%);background:#14803c;color:#fff;padding:10px 18px;border-radius:999px;z-index:30;font-size:14px;box-shadow:0 6px 20px rgba(0,0,0,.3)}
+#rcpt{position:fixed;inset:0;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;padding:14px;z-index:20}
+.sheet{background:var(--card);border-radius:20px;padding:14px;max-height:100%;overflow:auto;width:100%;max-width:340px}
+.paper{background:#fff;color:#000;font:13px/1.45 "Courier New",monospace;padding:14px;border:1px dashed #999;border-radius:8px;width:100%}
+.paper .c{text-align:center}.paper .l{display:flex;justify-content:space-between;gap:8px}.paper hr{border:0;border-top:1px dashed #000;margin:8px 0}
+@media print{body>*:not(#rcpt){display:none!important}#rcpt{position:static;background:none;padding:0;display:block}.sheet{background:none;padding:0;max-width:none;overflow:visible}.noprint{display:none!important}.paper{border:0;width:58mm;padding:0}@page{margin:4mm}}
+</style>
+</head>
+<body>
+<div class="top"><div><span class="logo">☕</span><span><b>KOPI PASTEA</b><small>Kopi &amp; Teh Kekinian</small></span></div></div>
+<main>
+<div id="v0">
+<div class="hero"><p>Salamat datang di KOPI PASTEA</p><h1>Kopi &amp; Teh Kekinian</h1><button class="cta" id="goK">Mulai Jualan</button></div>
+<div class="tiles">
+<button class="tile" data-go="1"><i>🧾</i><b>Kasir</b><span>Input pesanan</span></button>
+<button class="tile" data-go="2"><i>☕</i><b>Produk</b><span>Kelola menu</span></button>
+<button class="tile" data-go="3"><i>📊</i><b id="hOm">Rp0</b><span>Omzet hari ini</span></button>
+</div>
+<div class="card"><h2>Salamat datang di KOPI PASTEA</h2><p>Es kopi susu wan teh kekinian, harganya tajangkau, mulai Rp8.000 sagelas. Cari gerobak kami di Jalan Cendana wan Jalan Sultan Adam, Banjarmasin, dari jam 09.00 sampai 17.30 WITA.</p><h2>Tentang KOPI PASTEA</h2><p style="margin:0">KOPI PASTEA adalah merek kemitraan minuman lokal nang manawarakan es kopi susu wan teh kekinian, modalnya tajangkau. Ngaran “Pastea” gabungan dari kopi (coffee) wan teh (tea). Ciri khasnya gerobak nang bajualan baputar-putar. Merek ini didirikan Ima Yuanita wan mulai mambuka kemitraan sajak 2024.</p></div>
+</div>
+
+<div id="v1" class="grid hide">
+<div class="card"><input class="search" id="q" placeholder="🔍 Cari menu…"><div class="prods" id="prods"></div></div>
+<div class="card" id="cartbox"><h2>Pesanan</h2><div id="cart"></div>
+<div class="tot"><span>Total</span><b id="total">Rp0</b></div>
+<div class="chips" id="chips"></div>
+<input class="in" id="bayar" inputmode="numeric" placeholder="Uang diterima (Rp)">
+<div id="kemb" class="row hide"><span>Kembalian</span><span class="kb" id="kembv"></span></div>
+<button class="btn" id="done">Selesai &amp; Simpan</button>
+<button class="btn g" id="clear">Kosongkan</button></div>
+</div>
+
+<div id="v2" class="card hide"><h2>Kelola produk</h2>
+<div class="add"><input class="in" id="np" placeholder="Nama produk"><input class="in" id="nh" inputmode="numeric" placeholder="Harga"></div>
+<button class="btn" id="addp" style="margin:0 0 10px">+ Tambah produk</button>
+<div id="plist"></div></div>
+
+<div id="v3" class="hide"><h2>Riwayat hari ini</h2><div class="stats"><div class="stat"><small>Omzet</small><b id="sOm">Rp0</b></div><div class="stat"><small>Transaksi</small><b id="sN">0</b></div></div><div class="card" id="hist"></div></div>
+</main>
+
+<button id="fl" class="hide"><span id="flN">0 item</span><span id="flT">Lihat pesanan →</span></button>
+<nav id="nav"><button id="t0" class="on">🏠<span>Home</span></button><button id="t1">🧾<span>Kasir</span></button><button id="t2">☕<span>Produk</span></button><button id="t3">📊<span>Riwayat</span></button></nav>
+<div id="rcpt" class="hide"><div class="sheet"><div class="paper" id="paper"></div><button class="btn noprint" id="prn">🖨 Cetak struk</button><button class="btn g noprint" id="cls">Tutup</button></div></div>
+
+<script>
+var KEY="pastea_kasir_v1";
+var def={products:[["Brown Sugar Coffee",8000],["Salted Caramel Coffee",10000],["Americano Full Arabica",8000],["Hazelnut Coffee Latte",10000],["Royal Chocolate",12000],["Premium Thai Tea",10000],["Cookies and Cream",12000]].map(function(a,i){return{id:i+1,n:a[0],h:a[1]}}),sales:[],next:8};
+var S=load(),cart={},cur="0",qs="";
+function load(){try{var r=localStorage.getItem(KEY);if(r)return JSON.parse(r)}catch(e){}return JSON.parse(JSON.stringify(def))}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+function $(i){return document.getElementById(i)}
+function rp(n){return "Rp"+Number(n).toLocaleString("id-ID")}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function ico(n){n=n.toLowerCase();return /tea|teh/.test(n)?"🧋":/choco|coklat/.test(n)?"🍫":/cookie/.test(n)?"🍪":/coffee|kopi|americano|latte/.test(n)?"☕":"🥤"}
+function total(){return S.products.reduce(function(t,p){return t+(cart[p.id]||0)*p.h},0)}
+function count(){return Object.keys(cart).reduce(function(t,k){return t+cart[k]},0)}
+function today(){var d=new Date().toDateString();return S.sales.filter(function(s){return new Date(s.t).toDateString()===d})}
+function toast(m){var t=document.createElement("div");t.id="toast";t.textContent=m;document.body.appendChild(t);setTimeout(function(){t.remove()},1800)}
+
+function drawProds(){
+ var l=S.products.filter(function(p){return p.n.toLowerCase().indexOf(qs)>-1});
+ $("prods").innerHTML=l.map(function(p){var c=cart[p.id];return '<button class="p" data-id="'+p.id+'">'+(c?'<span class="bd">'+c+'</span>':'')+'<span class="ic">'+ico(p.n)+'</span><b>'+esc(p.n)+'</b><small>'+rp(p.h)+'</small></button>'}).join("")||'<div class="empty">Menu tidak ditemukan</div>';
+}
+function drawCart(){
+ var items=S.products.filter(function(p){return cart[p.id]});
+ $("cart").innerHTML=items.length?items.map(function(p){return '<div class="row"><div>'+esc(p.n)+'<br><small>'+rp(p.h)+'</small></div><div class="q"><button data-m="'+p.id+'">−</button><span>'+cart[p.id]+'</span><button data-a="'+p.id+'">+</button></div></div>'}).join(""):'<div class="empty">Ketuk menu untuk menambah pesanan</div>';
+ var t=total();$("total").textContent=rp(t);
+ $("chips").innerHTML=t?[["Uang pas",t],["Rp20.000",20000],["Rp50.000",50000],["Rp100.000",100000]].map(function(c){return '<button data-c="'+c[1]+'">'+c[0]+'</button>'}).join(""):"";
+ $("flN").textContent=count()+" item";$("flT").textContent=rp(t)+" · Lihat →";
+ $("fl").classList.toggle("hide",!(count()&&cur==="1"));
+ calcKemb();drawProds();
+}
+function calcKemb(){var b=parseInt($("bayar").value.replace(/\D/g,""))||0,t=total();
+ $("kemb").classList.toggle("hide",!b);$("kembv").textContent=b>=t?rp(b-t):"Kurang "+rp(t-b)}
+function drawPlist(){$("plist").innerHTML=S.products.map(function(p){return '<div class="row"><span>'+ico(p.n)+' '+esc(p.n)+'<br><small>'+rp(p.h)+'</small></span><button class="x" data-d="'+p.id+'">Hapus</button></div>'}).join("")||'<div class="empty">Belum ada produk</div>'}
+function drawHist(){
+ var h=today().reverse(),sum=h.reduce(function(a,s){return a+s.total},0);
+ $("sOm").textContent=rp(sum);$("sN").textContent=h.length;$("hOm").textContent=rp(sum);
+ $("hist").innerHTML=h.length?h.map(function(s){return '<div class="row"><div><small>'+new Date(s.t).toLocaleTimeString("id-ID",{hour:"2-digit",minute:"2-digit"})+'</small><br>'+s.items.map(function(i){return esc(i.n)+' ×'+i.q}).join(", ")+'</div><div style="text-align:right"><b>'+rp(s.total)+'</b><br><button class="x" data-r="'+s.t+'">🖨 Struk</button></div></div>'}).join(""):'<div class="empty">Belum ada transaksi hari ini</div>';
+}
+function tab(n){cur=n;["0","1","2","3"].forEach(function(i){$("v"+i).classList.toggle("hide",i!==n);$("t"+i).classList.toggle("on",i===n)});if(n==="3")drawHist();$("fl").classList.toggle("hide",!(count()&&n==="1"));window.scrollTo(0,0)}
+
+$("prods").onclick=function(e){var b=e.target.closest("[data-id]");if(!b)return;var id=b.dataset.id;cart[id]=(cart[id]||0)+1;drawCart()};
+$("cart").onclick=function(e){var a=e.target.dataset.a,m=e.target.dataset.m;if(a)cart[a]++;if(m){cart[m]--;if(cart[m]<=0)delete cart[m]}drawCart()};
+$("chips").onclick=function(e){var c=e.target.dataset.c;if(!c)return;$("bayar").value=c;calcKemb()};
+$("q").oninput=function(){qs=this.value.toLowerCase();drawProds()};
+$("bayar").oninput=calcKemb;
+$("clear").onclick=function(){cart={};$("bayar").value="";drawCart()};
+$("fl").onclick=function(){$("cartbox").scrollIntoView({behavior:"smooth"})};
+$("done").onclick=function(){var t=total();if(!t)return toast("Pesanan masih kosong");
+ var items=S.products.filter(function(p){return cart[p.id]}).map(function(p){return{n:p.n,q:cart[p.id],h:p.h}});
+ var b=parseInt($("bayar").value.replace(/\D/g,""))||0;var s={t:Date.now(),items:items,total:t,bayar:b};
+ S.sales.push(s);save();cart={};$("bayar").value="";drawCart();drawHist();showStruk(s);toast("Transaksi tersimpan")};
+$("addp").onclick=function(){var n=$("np").value.trim(),h=parseInt($("nh").value.replace(/\D/g,""));if(!n||!h)return toast("Isi nama dan harga");
+ S.products.push({id:S.next++,n:n,h:h});save();$("np").value="";$("nh").value="";drawAll();toast("Produk ditambahkan")};
+$("plist").onclick=function(e){var d=e.target.dataset.d;if(!d)return;S.products=S.products.filter(function(p){return String(p.id)!==d});delete cart[d];save();drawAll()};
+$("hist").onclick=function(e){var r=e.target.dataset.r;if(!r)return;var s=S.sales.filter(function(x){return String(x.t)===r})[0];if(s)showStruk(s)};
+["0","1","2","3"].forEach(function(i){$("t"+i).onclick=function(){tab(i)}});
+$("goK").onclick=function(){tab("1")};
+document.querySelectorAll("[data-go]").forEach(function(b){b.onclick=function(){tab(b.dataset.go)}});
+
+function showStruk(s){
+ var d=new Date(s.t),no=String(d.getFullYear()).slice(2)+("0"+(d.getMonth()+1)).slice(-2)+("0"+d.getDate()).slice(-2)+"-"+String(s.t).slice(-5);
+ var h='<div class="c"><b>KOPI PASTEA</b><br>Banjarmasin<br>Jl. Cendana &amp; Jl. Sultan Adam</div><hr>'+d.toLocaleString("id-ID")+'<br>No: '+no+'<hr>';
+ s.items.forEach(function(i){h+=esc(i.n)+'<div class="l"><span>'+i.q+' x '+rp(i.h)+'</span><span>'+rp(i.q*i.h)+'</span></div>'});
+ h+='<hr><div class="l"><b>TOTAL</b><b>'+rp(s.total)+'</b></div>';
+ if(s.bayar){h+='<div class="l"><span>Tunai</span><span>'+rp(s.bayar)+'</span></div><div class="l"><span>Kembali</span><span>'+rp(Math.max(0,s.bayar-s.total))+'</span></div>'}
+ h+='<hr><div class="c">Terima kasih!<br>Kopi &amp; Teh Kekinian</div>';
+ $("paper").innerHTML=h;$("rcpt").classList.remove("hide")}
+$("prn").onclick=function(){window.print()};
+$("cls").onclick=function(){$("rcpt").classList.add("hide")};
+function drawAll(){drawCart();drawPlist();drawHist()}
+drawAll();
+</script>
+</body>
+</html>
